@@ -1,8 +1,144 @@
 import styled from 'styled-components'
+import IntroBackground from '../../assets/IntroBackground.svg'
 
 export const HomeContainer = styled.main`
   /* flex: 1; */
   display: flex;
+  width: 100%;
   flex-direction: column;
   height: 100%;
+  /* border-style: solid; */
+  /* margin: 0 auto; */
+  h2 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    font-family: 'Baloo 2';
+    line-height: 130%;
+    padding: 92px 10rem 0px 10rem;
+  }
+`
+
+export const IntroContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-image: url(${IntroBackground});
+  /* border-style: solid; */
+
+  justify-content: space-between;
+  padding: 5.75rem 10rem 5.75rem 10rem;
+  gap: 56px;
+
+  img {
+    width: 476px;
+    height: 360px;
+  }
+  h1 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    font-family: 'Baloo 2';
+    line-height: 130%;
+  }
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+  }
+`
+// export const InfoContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   /* border-style: solid; */
+//   justify-content: space-between;
+//   padding: 5.75rem 10rem 5.75rem 10rem;
+//   gap: 56px;
+
+//   h1 {
+//     font-size: 48px;
+//     font-style: normal;
+//     font-weight: 800;
+//     font-family: 'Baloo 2';
+//     line-height: 130%;
+//   }
+//   p {
+//     font-family: 'Roboto', sans-serif;
+//     font-weight: 400;
+//     font-size: 20px;
+//   }
+// `
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border-style: solid; */
+  padding: 6px;
+  gap: 67px;
+`
+
+export const MainTextInfo = styled.div`
+  /* border-style: solid; */
+  width: 36.75rem;
+  font-size: 16px;
+`
+
+export const InfoItems = styled.div`
+  width: 36.75rem;
+  /* border-style: solid; */
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  /* flex-wrap: 1; */
+`
+export const BaseInfoItems = styled.div``
+
+export const InfoItemsCol1 = styled(BaseInfoItems)`
+  display: flex;
+  flex-direction: column;
+`
+export const InfoItemsCol2 = styled(BaseInfoItems)`
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+`
+
+export const InfoSpan = styled.span`
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 5px;
+  gap: 12px;
+  /* border-style: solid; */
+`
+export const BaseIconWrapper = styled.div`
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10000px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+`
+export const YellowWrapper = styled(BaseIconWrapper)`
+  background: ${(props) => props.theme.yellow};
+`
+export const OrangeWrapper = styled(BaseIconWrapper)`
+  background: ${(props) => props.theme['yellow-dark']};
+`
+export const BlackWrapper = styled(BaseIconWrapper)`
+  background: ${(props) => props.theme['base-title']};
+`
+export const PurpleWrapper = styled(BaseIconWrapper)`
+  background: ${(props) => props.theme.purple};
+`
+
+export const CoffeeListContainer = styled.div`
+  display: flex;
+  width: 1440px;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 55px 160px 92px 160px;
+  gap: 32px;
 `

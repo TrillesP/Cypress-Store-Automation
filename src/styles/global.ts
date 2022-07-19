@@ -18,7 +18,7 @@ body {
   -webkit-font-smoothing: antialised;
 }
 
-header {
+header, h3 {
   font-family: 'Baloo 2';
   font-weight: 400;
   font-size: 1.125rem;
@@ -26,7 +26,13 @@ header {
 
 border-style, input-security, textarea, button {
   font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 14px;
 }
 `
