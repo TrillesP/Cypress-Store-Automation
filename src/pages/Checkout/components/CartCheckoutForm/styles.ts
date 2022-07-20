@@ -1,30 +1,29 @@
 import styled from 'styled-components'
 
 export const CartCheckoutContainer = styled.div`
-  top: -100px;
+  top: -40px;
+  height: 498px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme['base-card']};
+  padding: 0px 40px 40px 40px;
+  margin-left: 2rem;
+  margin-right: 10rem;
+  border-radius: 0.375rem 2.75rem;
+  gap: 1.5rem;
+
   h3 {
     align-items: flex-start;
     position: relative;
-    top: -70px;
-    left: -165px;
+    top: -30px;
+    left: -160px;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 130%;
   }
-
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  /* min-width: 448px; */
-  align-items: center;
-  background-color: ${(props) => props.theme['base-card']};
-  padding: 2.5rem;
-  margin-left: 2rem;
-  margin-right: 10rem;
-  border-radius: 0.375rem 2.75rem;
-  gap: 1.5rem;
 `
 
 export const ConfirmOrderButton = styled.button`
@@ -60,7 +59,7 @@ export const BasePricingContainer = styled.div`
   align-items: center;
   padding: 0px;
   gap: 8px;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 
   font-family: 'Roboto';
   font-style: normal;

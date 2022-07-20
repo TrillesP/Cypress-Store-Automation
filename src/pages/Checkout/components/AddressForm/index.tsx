@@ -19,7 +19,7 @@ import {
 export function AddressForm() {
   return (
     <FormContainer>
-      <h3>Cafés Selecionados</h3>
+      <h3>Complete seu pedido</h3>
       <form action="">
         <AddressInfoContainer>
           <MapPinLine size={22} color={defaultTheme['yellow-dark']} />

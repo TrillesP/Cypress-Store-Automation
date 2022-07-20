@@ -2,15 +2,16 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.div`
   /* border-style: solid; */
-  padding: 40px;
+  border-radius: 6px;
+  padding: 20px 40px 40px 40px;
   gap: 32px;
   width: 640px;
   background: ${(props) => props.theme['base-card']};
-  /* margin-left 160px; */
+  top: -30px;
   h3 {
     align-items: flex-start;
     position: relative;
-    top: -70px;
+    top: -50px;
     left: -40px;
     font-family: 'Baloo 2';
     font-style: normal;
