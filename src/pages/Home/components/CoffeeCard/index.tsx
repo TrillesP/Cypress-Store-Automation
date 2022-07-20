@@ -8,8 +8,9 @@ import {
   CoffeePrice,
 } from './styles'
 import Americano from '../../../../assets/Coffees/Type=Americano.svg'
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { Minus, Plus, ShoppingCart, Trash } from 'phosphor-react'
 import { defaultTheme } from '../../../../styles/themes/default'
+import { RemoveFromCartButton } from '../../../Checkout/components/CartCheckoutForm/styles'
 
 export function CoffeeCard() {
   return (

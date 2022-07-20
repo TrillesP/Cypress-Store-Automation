@@ -1,3 +1,5 @@
+import { PaymentMethodContainer } from './styles'
+
 export function PaymentMethodForm() {
-  return <div>Payment method Form</div>
+  return <PaymentMethodContainer> Payment method Form</PaymentMethodContainer>
 }

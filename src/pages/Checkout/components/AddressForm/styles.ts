@@ -1,14 +1,32 @@
 import styled from 'styled-components'
 
-export const FormContainer = styled.div``
+export const FormContainer = styled.div`
+  /* border-style: solid; */
+  padding: 40px;
+  gap: 32px;
+  width: 640px;
+  background: ${(props) => props.theme['base-card']};
+  /* margin-left 160px; */
+  h3 {
+    align-items: flex-start;
+    position: relative;
+    top: -70px;
+    left: -40px;
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 130%;
+  }
+`
 
 export const AddressInfoContainer = styled.div`
-  border-style: solid;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 8px;
-  padding: 40px 0px 32px 0px;
+  padding: 0px 0px 32px 0px;
+  justify-content: flex-start;
 `
 
 export const AddressLabelContainer = styled.div`
@@ -35,20 +53,16 @@ export const AddressLabelContainer = styled.div`
 `
 
 export const AddressFieldsContainer = styled.div`
-  border-style: solid;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 `
 
-export const NeighborhoodCityUFContainer = styled.div``
-
-export const NumberComplementContainer = styled.div``
-
 export const BaseInput = styled.input`
   height: 42px;
 
+  background: ${(props) => props.theme['base-input']};
   padding: 12px;
   gap: 4px;
   border: 1px solid #e6e5e5;
@@ -57,14 +71,44 @@ export const BaseInput = styled.input`
 
 export const CEPInput = styled(BaseInput)``
 
-export const StreetInput = styled(BaseInput)``
+export const StreetInput = styled(BaseInput)`
+  width: 35rem;
+`
+export const NumberComplementContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  width: 560px;
+`
 
-export const NumberInput = styled(BaseInput)``
+export const NumberInput = styled(BaseInput)`
+  width: 12.5rem;
+`
 
-export const ComplementInput = styled(BaseInput)``
+export const ComplementInput = styled(BaseInput)`
+  width: 348px;
+`
+export const NeighborhoodCityUFContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
 
-export const NeighborhoodInput = styled(BaseInput)``
+  width: 560px;
+  height: 42px;
+`
 
-export const CityInput = styled(BaseInput)``
+export const NeighborhoodInput = styled(BaseInput)`
+  width: 12.5rem;
+`
 
-export const UFInput = styled(BaseInput)``
+export const CityInput = styled(BaseInput)`
+  width: 17.25rem;
+`
+
+export const UFInput = styled(BaseInput)`
+  width: 3.75rem;
+`

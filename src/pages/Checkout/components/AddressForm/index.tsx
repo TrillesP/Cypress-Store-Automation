@@ -19,6 +19,7 @@ import {
 export function AddressForm() {
   return (
     <FormContainer>
+      <h3>Cafés Selecionados</h3>
       <form action="">
         <AddressInfoContainer>
           <MapPinLine size={22} color={defaultTheme['yellow-dark']} />
@@ -32,7 +33,7 @@ export function AddressForm() {
           <StreetInput placeholder="Rua" />
           <NumberComplementContainer>
             <NumberInput placeholder="Número" />
-            <ComplementInput placeholder="Complemento" />
+            <ComplementInput placeholder="Complemento                                                  Opcional" />
           </NumberComplementContainer>
           <NeighborhoodCityUFContainer>
             <NeighborhoodInput placeholder="Bairro" />
