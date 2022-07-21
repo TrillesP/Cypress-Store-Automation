@@ -132,13 +132,3 @@ export const BlackWrapper = styled(BaseIconWrapper)`
 export const PurpleWrapper = styled(BaseIconWrapper)`
   background: ${(props) => props.theme.purple};
 `
-
-export const CoffeeListContainer = styled.div`
-  display: flex;
-  width: 1440px;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 55px 160px 92px 160px;
-  gap: 32px;
-`

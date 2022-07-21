@@ -60,5 +60,9 @@ export const PaymentOptionsSelectContainer = styled.div`
     font-size: 12px;
     line-height: 160%;
     text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `
