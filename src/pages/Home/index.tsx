@@ -16,9 +16,9 @@ import {
 import bigCoffeeCup from '../../assets/BigCoffeeCup.svg'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { CoffeeShop } from './components/CoffeeShop'
-
+import { CartContext, qtyDelta } from '../../contexts/CartContext'
 export interface Product {
   id: string
   name: string
@@ -31,7 +31,18 @@ export interface Products {
   products: Product[]
 }
 
+// interface NewCartItemData {
+//   product: Product
+//   quantity: qtyDelta
+// }
+
 export function Home() {
+  // const { cart, addProductToCart } = useContext(CartContext)
+
+  // function handleCreateNewCartItem(data: NewCartItemData) {
+  //   addProductToCart(data)
+  // }
+
   const availableCoffees: Product[] = [
     {
       id: '1',

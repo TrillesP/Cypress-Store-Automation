@@ -36,3 +36,22 @@ export const CartButton = styled.button`
     cursor: pointer;
   }
 `
+export const CartQtyIndicator = styled.span`
+  position: relative;
+  width: 20px;
+  height: 20px;
+  left: -23px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: ${(props) => props.theme['yellow-dark']};
+  color: white;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+`

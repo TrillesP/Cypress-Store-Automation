@@ -1,9 +1,19 @@
-import { Actions, CartButton, HeaderContainer, LocationPill } from './styles'
+import {
+  Actions,
+  CartButton,
+  HeaderContainer,
+  LocationPill,
+  CartQtyIndicator,
+} from './styles'
 import logoCoffee from '../../assets/Logo.svg'
-import cart from '../../assets/Cart.svg'
+import cartImg from '../../assets/Cart.svg'
 import locationIcon from '../../assets/LocationIcon.svg'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
+import { NavLink } from 'react-router-dom'
 
 export function Header() {
+  const { cart } = useContext(CartContext)
   return (
     <HeaderContainer>
       <img src={logoCoffee} alt="Coffee Delivery Logo" />
@@ -12,9 +22,12 @@ export function Header() {
           <img src={locationIcon} alt="" />
           Porto Alegre - RS
         </LocationPill>
-        <CartButton>
-          <img src={cart} alt="" />
-        </CartButton>
+        <NavLink to="/checkout" title="checkout">
+          <CartButton>
+            <img src={cartImg} alt="" />
+          </CartButton>
+        </NavLink>
+        <CartQtyIndicator>{cart.length}</CartQtyIndicator>
       </Actions>
     </HeaderContainer>
   )

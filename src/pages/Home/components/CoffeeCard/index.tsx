@@ -26,6 +26,9 @@ import Mochaccino from '../../../../assets/Coffees/Type=Mochaccino.svg'
 import { Minus, Plus, ShoppingCart, Trash } from 'phosphor-react'
 import { defaultTheme } from '../../../../styles/themes/default'
 import { RemoveFromCartButton } from '../../../Checkout/components/CartCheckoutForm/styles'
+import { CartContext, qtyDelta } from '../../../../contexts/CartContext'
+import { MouseEvent, useContext, useState } from 'react'
+import { Product } from '../..'
 
 interface CoffeeCardProps {
   id: string
@@ -51,6 +54,12 @@ const coffeesImgObj = {
   Macchiato,
   Mochaccino,
 }
+
+interface NewCartItemData {
+  product: Product
+  quantity: number
+}
+
 export function CoffeeCard({
   id,
   name,
@@ -59,9 +68,46 @@ export function CoffeeCard({
   price,
   img,
 }: CoffeeCardProps) {
+  const currentProduct: Product = {
+    id,
+    name,
+    tags,
+    description,
+    price,
+    img,
+  }
+  const { cart, addProductToCart } = useContext(CartContext)
+
+  const [currentQuantity, setCurrentQuantity] = useState(1)
+  const [product, setProduct] = useState(currentProduct)
+
+  function createNewCartItem(data: NewCartItemData) {
+    addProductToCart(data)
+  }
+
+  function handleClickIncrement(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    setCurrentQuantity(currentQuantity + 1)
+  }
+
+  function handleClickDecrement(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    if (currentQuantity > 1) {
+      setCurrentQuantity(currentQuantity - 1)
+    }
+  }
+
+  function handleClickAddToCart(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    const quantity: number = currentQuantity
+    console.log(`adding: ${product.name} with qty: ${quantity}`)
+    createNewCartItem({ product, quantity })
+  }
+
   return (
     <>
       <CoffeeCardWrapper>
+        {/* <form onSubmit={handleCreateNewCartItem}> */}
         <img src={coffeesImgObj[img]} alt={`Xícara de ${name} vista de cima`} />
         <CoffeeFlavorPills>
           {tags.map((tag) => {
@@ -76,18 +122,19 @@ export function CoffeeCard({
           <p> R$ </p>
           <CoffeePrice> {price.toFixed(2)} </CoffeePrice>
           <AddAndRemoveCounter>
-            <button>
+            <button onClick={handleClickDecrement}>
               <Minus color={defaultTheme['purple-dark']} weight="bold" />
             </button>
-            <span> 1 </span>
-            <button>
+            <span> {currentQuantity} </span>
+            <button onClick={handleClickIncrement}>
               <Plus color={defaultTheme['purple-dark']} weight="bold" />
             </button>
           </AddAndRemoveCounter>
-          <AddToCartButton>
+          <AddToCartButton onClick={handleClickAddToCart}>
             <ShoppingCart />
           </AddToCartButton>
         </CoffeeBuyDiv>
+        {/* </form> */}
       </CoffeeCardWrapper>
     </>
   )

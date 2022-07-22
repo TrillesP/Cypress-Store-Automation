@@ -1,3 +1,6 @@
+import { Product } from '../pages/Home'
+import { produce } from 'immer'
+/* eslint-disable no-unused-vars */
 export interface CartItem {
   id: string
   product: Product
@@ -5,12 +8,11 @@ export interface CartItem {
 }
 
 export interface Cart {
-  id: string
-  cartItems: CartItem[]
+  cart: CartItem[]
 }
 
 interface CartState {
-  cartItems: CartItem[]
+  cart: CartItem[]
 }
 
 export enum ActionTypes {
@@ -20,10 +22,58 @@ export enum ActionTypes {
 }
 
 export function cartReducer(state: CartState, action: any) {
-  if (action.type === ActionTypes.ADD_PRODUCT_TO_CART) {
-    return {
-      ...state,
-      cartItems: [...state.cartItems, action.payload.newCartItem],
-    }
+  switch (action.type) {
+    // return {
+    //   ...state,
+    //   cart: [...state.cart, action.payload.cartItem],
+    // }
+    case ActionTypes.ADD_PRODUCT_TO_CART:
+      return produce(state, (draft) => {
+        draft.cart.push(action.payload.newCartItem)
+      })
+    case ActionTypes.REMOVE_PRODUCT_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((cartItem) => {
+          return cartItem.product.id === action.payload.product.id
+        }),
+      }
+    case ActionTypes.CHANGE_QUANTITY_OF_PRODUCT_ON_CART:
+      return {
+        ...state,
+        cart: state.cart.map((cartItem) => {
+          if (cartItem.product.id === action.payload.product_id) {
+            action.payload.changeQtyDelta
+              ? (cartItem.quantity = +1)
+              : (cartItem.quantity = -1)
+            return cartItem
+          }
+          return cartItem.product.id === action.payload.product.id
+        }),
+      }
+    default:
+      return state
   }
+  // if (action.type === ActionTypes.REMOVE_PRODUCT_FROM_CART) {
+  //   return {
+  //     ...state,
+  //     cart: state.cart.filter((cartItem) => {
+  //       return cartItem.product.id === action.payload.product.id
+  //     }),
+  //   }
+  // }
+  // if (action.type === ActionTypes.CHANGE_QUANTITY_OF_PRODUCT_ON_CART) {
+  //   return {
+  //     ...state,
+  //     cart: state.cart.map((cartItem) => {
+  //       if (cartItem.product.id === action.payload.product_id) {
+  //         action.payload.changeQtyDelta
+  //           ? (cartItem.quantity = +1)
+  //           : (cartItem.quantity = -1)
+  //         return cartItem
+  //       }
+  //       return cartItem.product.id === action.payload.product.id
+  //     }),
+  //   }
+  // }
 }
