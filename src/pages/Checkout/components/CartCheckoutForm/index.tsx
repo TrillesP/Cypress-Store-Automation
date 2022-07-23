@@ -10,13 +10,19 @@ import {
 
 import { defaultTheme } from '../../../../styles/themes/default'
 import { CartItem } from './components/CartItem'
+import { CartContext } from '../../../../contexts/CartContext'
+import { useContext } from 'react'
 
 export function CartCheckoutForm() {
+  const { cart } = useContext(CartContext)
+  console.log(cart.length)
+  // console.log(cart[0].)
   return (
     <CartCheckoutContainer>
       <h3>Cafés Selecionados</h3>
-      <CartItem />
-      <CartItem />
+      {cart.map((item) => {
+        return <CartItem key={Math.random()} productId={item.product.id} />
+      })}
       <PricingContainer>
         <BasePricingContainer>
           <label htmlFor="">Total de Items</label>

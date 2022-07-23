@@ -14,6 +14,7 @@ import { NavLink } from 'react-router-dom'
 
 export function Header() {
   const { cart } = useContext(CartContext)
+  console.log(cart)
   return (
     <HeaderContainer>
       <img src={logoCoffee} alt="Coffee Delivery Logo" />

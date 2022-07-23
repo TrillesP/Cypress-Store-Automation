@@ -29,6 +29,7 @@ import { RemoveFromCartButton } from '../../../Checkout/components/CartCheckoutF
 import { CartContext, qtyDelta } from '../../../../contexts/CartContext'
 import { MouseEvent, useContext, useState } from 'react'
 import { Product } from '../..'
+import { ProductsContext } from '../../../../contexts/ProductsContext'
 
 interface CoffeeCardProps {
   id: string
@@ -38,23 +39,6 @@ interface CoffeeCardProps {
   price: number
   img: string
 }
-const coffeesImgObj = {
-  Americano,
-  Arabe,
-  CafeComLeite,
-  CafeGelado,
-  Capuccino,
-  ChocolateQuente,
-  Cubano,
-  ExpressoCremoso,
-  Expresso,
-  Havaiano,
-  Irlandes,
-  Latte,
-  Macchiato,
-  Mochaccino,
-}
-
 interface NewCartItemData {
   product: Product
   quantity: number
@@ -76,10 +60,11 @@ export function CoffeeCard({
     price,
     img,
   }
-  const { cart, addProductToCart } = useContext(CartContext)
+  const { addProductToCart } = useContext(CartContext)
+  const { availableProducts } = useContext(ProductsContext)
 
   const [currentQuantity, setCurrentQuantity] = useState(1)
-  const [product, setProduct] = useState(currentProduct)
+  const [product] = useState(currentProduct)
 
   function createNewCartItem(data: NewCartItemData) {
     addProductToCart(data)
@@ -100,7 +85,6 @@ export function CoffeeCard({
   function handleClickAddToCart(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
     const quantity: number = currentQuantity
-    console.log(`adding: ${product.name} with qty: ${quantity}`)
     createNewCartItem({ product, quantity })
   }
 
@@ -108,7 +92,7 @@ export function CoffeeCard({
     <>
       <CoffeeCardWrapper>
         {/* <form onSubmit={handleCreateNewCartItem}> */}
-        <img src={coffeesImgObj[img]} alt={`Xícara de ${name} vista de cima`} />
+        <img src={img} alt={`Xícara de ${name} vista de cima`} />
         <CoffeeFlavorPills>
           {tags.map((tag) => {
             return <span key={tag}> {tag} </span>

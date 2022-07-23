@@ -1,11 +1,5 @@
-import { createContext, ReactNode, useReducer } from 'react'
-import {
-  ActionTypes,
-  Cart,
-  CartItem,
-  Product,
-  cartReducer,
-} from '../reducers/cart'
+import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import { ActionTypes, CartItem, Product, cartReducer } from '../reducers/cart'
 
 interface AddToCartData {
   product: Product
@@ -14,14 +8,14 @@ interface AddToCartData {
 
 export type qtyDelta = -1 | 1
 interface ChangeProductQuantityData {
-  product_id: string
+  productId: string
   changeQtyDelta: qtyDelta
 }
 
 interface CartContextType {
   cart: CartItem[]
   addProductToCart: (data: AddToCartData) => void
-  removeProductFromCart: (product_id: string) => void
+  removeProductFromCart: (productId: string) => void
   changeQuantityOfProductOnCart: (data: ChangeProductQuantityData) => void
 }
 
@@ -32,11 +26,30 @@ interface CartContextProviderProps {
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartState, dispatch] = useReducer(cartReducer, {
-    cart: [],
-  })
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    {
+      cart: [],
+    },
+    () => {
+      const storedStateAsJSON = localStorage.getItem(
+        '@coffee-shop:cart-state-1.0.0',
+      )
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON)
+      } else {
+        return { cart: [] }
+      }
+    },
+  )
 
   const { cart } = cartState
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartState)
+
+    localStorage.setItem('@coffee-shop:cart-state-1.0.0', stateJSON)
+  }, [cartState])
 
   function addProductToCart(data: AddToCartData) {
     const id = String(new Date().getTime())
@@ -54,11 +67,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     })
   }
 
-  function removeProductFromCart(product_id: string) {
+  function removeProductFromCart(productId: string) {
     dispatch({
       type: ActionTypes.REMOVE_PRODUCT_FROM_CART,
       payload: {
-        product_id,
+        productId,
       },
     })
   }
@@ -67,7 +80,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch({
       type: ActionTypes.CHANGE_QUANTITY_OF_PRODUCT_ON_CART,
       payload: {
-        product_id,
+        productId,
         changeQtyDelta,
       },
     })

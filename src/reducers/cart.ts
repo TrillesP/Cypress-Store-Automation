@@ -23,10 +23,6 @@ export enum ActionTypes {
 
 export function cartReducer(state: CartState, action: any) {
   switch (action.type) {
-    // return {
-    //   ...state,
-    //   cart: [...state.cart, action.payload.cartItem],
-    // }
     case ActionTypes.ADD_PRODUCT_TO_CART:
       return produce(state, (draft) => {
         draft.cart.push(action.payload.newCartItem)
@@ -42,7 +38,7 @@ export function cartReducer(state: CartState, action: any) {
       return {
         ...state,
         cart: state.cart.map((cartItem) => {
-          if (cartItem.product.id === action.payload.product_id) {
+          if (cartItem.product.id === action.payload.productId) {
             action.payload.changeQtyDelta
               ? (cartItem.quantity = +1)
               : (cartItem.quantity = -1)
@@ -66,7 +62,7 @@ export function cartReducer(state: CartState, action: any) {
   //   return {
   //     ...state,
   //     cart: state.cart.map((cartItem) => {
-  //       if (cartItem.product.id === action.payload.product_id) {
+  //       if (cartItem.product.id === action.payload.productId) {
   //         action.payload.changeQtyDelta
   //           ? (cartItem.quantity = +1)
   //           : (cartItem.quantity = -1)

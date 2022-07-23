@@ -12,14 +12,25 @@ import {
 } from './styles'
 
 import coffeeImg from '../../../../../../assets/Coffees/Type=Americano.svg'
+import { useContext } from 'react'
+import {
+  Product,
+  ProductsContext,
+} from '../../../../../../contexts/ProductsContext'
 
-export function CartItem() {
+export function CartItem(productId: string) {
+  const { availableProducts } = useContext(ProductsContext)
+  const pId = productId.productId
+  const productInCart = availableProducts.find((product) => product.id === pId)
+  console.log(productInCart)
+  // const { name, img, price } = productInCart as Product
+
   return (
     <CartItemWrapper>
       <CartItemContainer>
-        <img src={coffeeImg} alt="" />
+        <img src={productInCart.img} alt="" />
         <CoffeeDetailContainer>
-          <span> Café Americano </span>
+          <span> {productInCart.name} </span>
           <CoffeeActionsContainer>
             <AddAndRemoveCounter>
               <button>
@@ -36,7 +47,7 @@ export function CartItem() {
             </RemoveFromCartButton>
           </CoffeeActionsContainer>
         </CoffeeDetailContainer>
-        <CoffeePrice> R$ 9,90 </CoffeePrice>
+        <CoffeePrice> R$ {productInCart.price} </CoffeePrice>
       </CartItemContainer>
       <Separator></Separator>
     </CartItemWrapper>
