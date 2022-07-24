@@ -1,4 +1,13 @@
 # react-coffee-delivery
 A coffee delivery e-commerce front-end example done using React.
 
-## Still work in progress...
+## This project is still work in progress...but...
+
+### Install and usage
+```
+npm install
+```
+
+```
+npm run dev
+```
