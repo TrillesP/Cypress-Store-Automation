@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react'
-import { ActionTypes, CartItem, Product, cartReducer } from '../reducers/cart'
+import { ActionTypes, CartItem, cartReducer } from '../reducers/cart'
+import { Product } from './ProductsContext'
 
 interface AddToCartData {
   product: Product
@@ -8,14 +9,14 @@ interface AddToCartData {
 
 export type qtyDelta = -1 | 1
 interface ChangeProductQuantityData {
-  productId: string
+  cartItemId: string
   changeQtyDelta: qtyDelta
 }
 
 interface CartContextType {
   cart: CartItem[]
   addProductToCart: (data: AddToCartData) => void
-  removeProductFromCart: (productId: string) => void
+  removeItemFromCart: (cartItemId: string) => void
   changeQuantityOfProductOnCart: (data: ChangeProductQuantityData) => void
 }
 
@@ -52,10 +53,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }, [cartState])
 
   function addProductToCart(data: AddToCartData) {
-    const id = String(new Date().getTime())
+    const cartItemId = String(Math.random() * 100000000000000000)
 
     const newCartItem: CartItem = {
-      id,
+      cartItemId,
       product: data.product,
       quantity: data.quantity,
     }
@@ -67,20 +68,23 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     })
   }
 
-  function removeProductFromCart(productId: string) {
+  function removeItemFromCart(cartItemId: string) {
     dispatch({
       type: ActionTypes.REMOVE_PRODUCT_FROM_CART,
       payload: {
-        productId,
+        cartItemId,
       },
     })
   }
 
   function changeQuantityOfProductOnCart(data: ChangeProductQuantityData) {
+    console.log(data.cartItemId)
+    const cartItemId = data.cartItemId
+    const changeQtyDelta = data.changeQtyDelta
     dispatch({
       type: ActionTypes.CHANGE_QUANTITY_OF_PRODUCT_ON_CART,
       payload: {
-        productId,
+        cartItemId,
         changeQtyDelta,
       },
     })
@@ -91,7 +95,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       value={{
         cart,
         addProductToCart,
-        removeProductFromCart,
+        removeItemFromCart,
         changeQuantityOfProductOnCart,
       }}
     >

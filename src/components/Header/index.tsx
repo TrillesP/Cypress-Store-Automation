@@ -17,7 +17,9 @@ export function Header() {
   console.log(cart)
   return (
     <HeaderContainer>
-      <img src={logoCoffee} alt="Coffee Delivery Logo" />
+      <NavLink to="/">
+        <img src={logoCoffee} alt="Coffee Delivery Logo" />
+      </NavLink>
       <Actions>
         <LocationPill>
           <img src={locationIcon} alt="" />

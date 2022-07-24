@@ -10,44 +10,70 @@ import {
   RemoveFromCartButton,
   Separator,
 } from './styles'
-
-import coffeeImg from '../../../../../../assets/Coffees/Type=Americano.svg'
+import { qtyDelta, CartContext } from '../../../../../../contexts/CartContext'
 import { useContext } from 'react'
-import {
-  Product,
-  ProductsContext,
-} from '../../../../../../contexts/ProductsContext'
 
-export function CartItem(productId: string) {
-  const { availableProducts } = useContext(ProductsContext)
-  const pId = productId.productId
-  const productInCart = availableProducts.find((product) => product.id === pId)
-  console.log(productInCart)
+interface CartItemProps {
+  cartItemId: string
+  name: string
+  img: string
+  price: number
+  quantity: number
+}
+
+export function CartItem({
+  cartItemId,
+  name,
+  img,
+  price,
+  quantity,
+}: CartItemProps) {
+  // const { availableProducts } = useContext(ProductsContext)
+  const { removeItemFromCart, changeQuantityOfProductOnCart } =
+    useContext(CartContext)
+  // const pId = productId.productId
+  // const productInCart = availableProducts.find((product) => product.id === pId)
+  // console.log(productInCart)
   // const { name, img, price } = productInCart as Product
+  let changeQtyDelta: qtyDelta
 
+  function handleDecreaseProductQuantityOfProductInCart() {
+    changeQtyDelta = -1
+    changeQuantityOfProductOnCart({ cartItemId, changeQtyDelta })
+  }
+  function handleIncreaseProductQuantityOfProductInCart() {
+    changeQtyDelta = 1
+    changeQuantityOfProductOnCart({ cartItemId, changeQtyDelta })
+  }
+
+  function handleRemoveItemFromCart() {
+    removeItemFromCart(cartItemId)
+  }
+
+  const fullPrice = price * quantity
   return (
     <CartItemWrapper>
       <CartItemContainer>
-        <img src={productInCart.img} alt="" />
+        <img src={img} alt="" />
         <CoffeeDetailContainer>
-          <span> {productInCart.name} </span>
+          <span> {name} </span>
           <CoffeeActionsContainer>
             <AddAndRemoveCounter>
-              <button>
+              <button onClick={handleDecreaseProductQuantityOfProductInCart}>
                 <Minus color={defaultTheme['purple-dark']} />
               </button>
-              <span> 1 </span>
-              <button>
+              <span> {quantity} </span>
+              <button onClick={handleIncreaseProductQuantityOfProductInCart}>
                 <Plus color={defaultTheme['purple-dark']} />
               </button>
             </AddAndRemoveCounter>
-            <RemoveFromCartButton>
+            <RemoveFromCartButton onClick={handleRemoveItemFromCart}>
               <Trash size={16} color={defaultTheme['purple-dark']} />
               <span> Remover </span>
             </RemoveFromCartButton>
           </CoffeeActionsContainer>
         </CoffeeDetailContainer>
-        <CoffeePrice> R$ {productInCart.price} </CoffeePrice>
+        <CoffeePrice> R$ {fullPrice.toFixed(2)} </CoffeePrice>
       </CartItemContainer>
       <Separator></Separator>
     </CartItemWrapper>

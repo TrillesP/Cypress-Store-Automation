@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const CartCheckoutContainer = styled.div`
   top: -40px;
-  height: 498px;
+  /* height: 800; */
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between; */
   align-items: center;
   background-color: ${(props) => props.theme['base-card']};
   padding: 0px 40px 40px 40px;
@@ -25,7 +26,13 @@ export const CartCheckoutContainer = styled.div`
     line-height: 130%;
   }
 `
-
+export const SelectedCoffeesBigContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  /* gap: 100px; */
+  align-items: center;
+`
 export const ConfirmOrderButton = styled.button`
   display: flex;
   flex-direction: row;
@@ -68,7 +75,13 @@ export const BasePricingContainer = styled.div`
   line-height: 130%;
 `
 
-export const PricingContainer = styled.div``
+export const PricingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: flex-end;
+`
+export const OrderSummaryContainer = styled.div``
 
 // export const TotalItemsPriceContainer = styled.div``
 // export const DeliveryPriceContainer = styled.div``

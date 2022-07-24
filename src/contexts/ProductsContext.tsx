@@ -35,7 +35,7 @@ const initialAvailableProducts = [
     name: 'Americano',
     tags: ['Tradicional'],
     description: 'Expresso diluído, menos intenso que o tradicional',
-    price: 9.9,
+    price: 9.99,
     img: Americano,
   },
   {
@@ -43,7 +43,7 @@ const initialAvailableProducts = [
     name: 'Árabe',
     tags: ['Especial'],
     description: 'Bebida preparada com grãos de café árabe e especiarias',
-    price: 9.9,
+    price: 10.5,
     img: Arabe,
   },
   {
@@ -51,7 +51,7 @@ const initialAvailableProducts = [
     name: 'Café com Leite',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    price: 9.9,
+    price: 10.5,
     img: CafeComLeite,
   },
   {
@@ -59,7 +59,7 @@ const initialAvailableProducts = [
     name: 'Expresso Gelado',
     tags: ['Tradicional', 'Gelado'],
     description: 'Bebida preparada com café expresso e cubos de gelo',
-    price: 9.9,
+    price: 9.99,
     img: CafeGelado,
   },
   {
@@ -68,7 +68,7 @@ const initialAvailableProducts = [
     tags: ['Tradicional', 'Com Leite'],
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
-    price: 9.9,
+    price: 12.3,
     img: Capuccino,
   },
   {
@@ -76,7 +76,7 @@ const initialAvailableProducts = [
     name: 'Chocolate Quente',
     tags: ['Especial', 'Com Leite'],
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    price: 9.9,
+    price: 12.3,
     img: ChocolateQuente,
   },
   {
@@ -84,7 +84,7 @@ const initialAvailableProducts = [
     name: 'Café com Leite',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    price: 9.9,
+    price: 12.3,
     img: CafeComLeite,
   },
   {
@@ -93,7 +93,7 @@ const initialAvailableProducts = [
     tags: ['Especial', 'Alcoólico', 'Gelado'],
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    price: 9.9,
+    price: 18.99,
     img: Cubano,
   },
   {
@@ -101,7 +101,7 @@ const initialAvailableProducts = [
     name: 'Expresso Cremoso',
     tags: ['Tradicional'],
     description: 'Café expresso tradicional com espuma cremosa',
-    price: 9.9,
+    price: 10.5,
     img: ExpressoCremoso,
   },
   {
@@ -109,7 +109,7 @@ const initialAvailableProducts = [
     name: 'Expresso Tradicional',
     tags: ['Tradicional'],
     description: 'O tradicional café feito com água quente e grãos moídos',
-    price: 9.9,
+    price: 9,
     img: Expresso,
   },
   {
@@ -117,7 +117,7 @@ const initialAvailableProducts = [
     name: 'Havaiano',
     tags: ['Especial'],
     description: 'Bebida adocicada preparada com café e leite de coco',
-    price: 9.9,
+    price: 16.2,
     img: Havaiano,
   },
   {
@@ -125,7 +125,7 @@ const initialAvailableProducts = [
     name: 'Irlandês',
     tags: ['Especial', 'Alcoólico'],
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    price: 9.9,
+    price: 19.9,
     img: Irlandes,
   },
   {
@@ -134,7 +134,7 @@ const initialAvailableProducts = [
     tags: ['Tradicional', 'Com Leite'],
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    price: 9.9,
+    price: 10.2,
     img: Latte,
   },
   {
@@ -143,7 +143,7 @@ const initialAvailableProducts = [
     tags: ['Tradicional', 'Com leite'],
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
-    price: 9.9,
+    price: 11.5,
     img: Macchiato,
   },
   {
@@ -151,7 +151,7 @@ const initialAvailableProducts = [
     name: 'Mochaccino',
     tags: ['Tradicional', 'Com leite'],
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    price: 9.9,
+    price: 13,
     img: Mochaccino,
   },
 ]
@@ -166,9 +166,7 @@ export const ProductsContext = createContext({} as ProductsContextType)
 export function ProductsContextProvider({
   children,
 }: ProductsContextProviderProps) {
-  const [availableProducts, setAvailableProducts] = useState<Product[]>(
-    initialAvailableProducts,
-  )
+  const [availableProducts] = useState<Product[]>(initialAvailableProducts)
   return (
     <ProductsContext.Provider
       value={{

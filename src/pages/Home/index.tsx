@@ -16,9 +16,9 @@ import {
 import bigCoffeeCup from '../../assets/BigCoffeeCup.svg'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CoffeeShop } from './components/CoffeeShop'
-import { Products, ProductsContext } from '../../contexts/ProductsContext'
+import { ProductsContext } from '../../contexts/ProductsContext'
 
 export function Home() {
   const { availableProducts } = useContext(ProductsContext)
