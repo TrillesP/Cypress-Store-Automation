@@ -1,4 +1,4 @@
-import { Product } from '../..'
+import { Product } from '../../../../contexts/ProductsContext'
 import { CoffeeCard } from '../CoffeeCard'
 import { CoffeeListContainer } from './styles'
 

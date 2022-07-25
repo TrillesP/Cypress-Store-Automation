@@ -3,14 +3,13 @@ import styled from 'styled-components'
 export const CartItemWrapper = styled.div``
 
 export const CartItemContainer = styled.div`
-  /* border-style: solid; */
   display: flex;
-
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 8px 4px;
   gap: 59px;
+  margin-top: 24px;
   img {
     width: 64px;
     height: 64px;
@@ -35,7 +34,6 @@ export const CoffeeDetailContainer = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 130%;
-  /* border-style: solid; */
 `
 
 export const CoffeeActionsContainer = styled.div`
@@ -94,7 +92,6 @@ export const RemoveFromCartButton = styled.div`
   gap: 4px;
   background: ${(props) => props.theme['base-button']};
   border-radius: 6px;
-  /* border-style: solid; */
 
   width: 150px;
   height: 32px;

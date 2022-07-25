@@ -53,7 +53,6 @@ export const CoffeeDescDiv = styled.div`
   align-items: center;
 
   padding: 1rem 1.25rem 2.0625rem 1.25rem;
-  /* border-style: solid; */
 `
 
 export const CoffeeBuyDiv = styled.div`
@@ -61,7 +60,7 @@ export const CoffeeBuyDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border-style: solid; */
+
   gap: 0.5rem;
   padding: 0px 24px 20px 24px;
   button {
@@ -91,7 +90,6 @@ export const AddAndRemoveCounter = styled.div`
   background: ${(props) => props.theme['base-button']};
   border-radius: 6px;
 
-  /* border-style: solid; */
   button {
     background: ${(props) => props.theme['base-button']};
     &:hover {

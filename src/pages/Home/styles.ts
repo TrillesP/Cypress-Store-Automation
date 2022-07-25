@@ -3,11 +3,15 @@ import IntroBackground from '../../assets/IntroBackground.svg'
 
 export const HomeContainer = styled.main`
   /* flex: 1; */
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
   display: flex;
-  width: 100%;
+  flex: wrap;
+  /* width: 100%; */
   flex-direction: column;
   height: 100%;
-  /* border-style: solid; */
+
   /* margin: 0 auto; */
   h2 {
     font-size: 48px;
@@ -23,16 +27,17 @@ export const IntroContainer = styled.div`
   display: flex;
   flex-direction: row;
   background-image: url(${IntroBackground});
-  /* border-style: solid; */
 
   justify-content: space-between;
   padding: 5.75rem 10rem 5.75rem 10rem;
   gap: 56px;
 
   img {
+    max-width: 100%;
     width: 476px;
     height: 360px;
   }
+
   h1 {
     font-size: 48px;
     font-style: normal;
@@ -49,7 +54,7 @@ export const IntroContainer = styled.div`
 // export const InfoContainer = styled.div`
 //   display: flex;
 //   flex-direction: row;
-//   /* border-style: solid; */
+//
 //   justify-content: space-between;
 //   padding: 5.75rem 10rem 5.75rem 10rem;
 //   gap: 56px;
@@ -71,20 +76,19 @@ export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* border-style: solid; */
+
   padding: 6px;
   gap: 67px;
 `
 
 export const MainTextInfo = styled.div`
-  /* border-style: solid; */
   width: 36.75rem;
   font-size: 16px;
 `
 
 export const InfoItems = styled.div`
   width: 36.75rem;
-  /* border-style: solid; */
+
   display: flex;
   flex-direction: row;
   gap: 40px;
@@ -109,7 +113,6 @@ export const InfoSpan = styled.span`
   align-items: center;
   padding: 5px;
   gap: 12px;
-  /* border-style: solid; */
 `
 export const BaseIconWrapper = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CartCheckoutContainer = styled.div`
-  top: -40px;
+  /* top: -40px; */
   /* height: 800; */
   display: flex;
   flex-direction: column;
@@ -12,7 +12,6 @@ export const CartCheckoutContainer = styled.div`
   margin-left: 2rem;
   margin-right: 10rem;
   border-radius: 0.375rem 2.75rem;
-  gap: 1.5rem;
 
   h3 {
     align-items: flex-start;
@@ -29,8 +28,6 @@ export const CartCheckoutContainer = styled.div`
 export const SelectedCoffeesBigContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
-  /* gap: 100px; */
   align-items: center;
 `
 export const ConfirmOrderButton = styled.button`
@@ -58,7 +55,6 @@ export const ConfirmOrderButton = styled.button`
 `
 export const BasePricingContainer = styled.div`
   display: flex;
-  /* border-style: solid; */
   flex-direction: row;
   justify-content: space-between;
   width: 368px;
@@ -71,20 +67,21 @@ export const BasePricingContainer = styled.div`
   font-family: 'Roboto';
   font-style: normal;
 
-  font-size: 14px;
+  font-size: 16px;
   line-height: 130%;
 `
 
 export const PricingContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
 `
-export const OrderSummaryContainer = styled.div``
-
-// export const TotalItemsPriceContainer = styled.div``
-// export const DeliveryPriceContainer = styled.div``
+export const OrderSummaryContainer = styled.div`
+  margin: 24px;
+  gap: 12px;
+`
 export const GrandTotalPriceContainer = styled(BasePricingContainer)`
   font-family: 'Roboto';
   font-style: normal;

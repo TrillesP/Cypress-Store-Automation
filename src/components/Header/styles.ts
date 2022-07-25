@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
   color: ${(props) => props.theme.purple};
   border-color: black;
   padding: 2rem 160px;
-  /* border-style: solid; */
 `
 
 export const Actions = styled.div`

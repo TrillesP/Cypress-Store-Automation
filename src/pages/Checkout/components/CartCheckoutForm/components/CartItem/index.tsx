@@ -28,13 +28,8 @@ export function CartItem({
   price,
   quantity,
 }: CartItemProps) {
-  // const { availableProducts } = useContext(ProductsContext)
   const { removeItemFromCart, changeQuantityOfProductOnCart } =
     useContext(CartContext)
-  // const pId = productId.productId
-  // const productInCart = availableProducts.find((product) => product.id === pId)
-  // console.log(productInCart)
-  // const { name, img, price } = productInCart as Product
   let changeQtyDelta: qtyDelta
 
   function handleDecreaseProductQuantityOfProductInCart() {

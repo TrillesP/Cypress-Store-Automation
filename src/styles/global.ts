@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 :focus {
@@ -13,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme['base-text']};
   -webkit-font-smoothing: antialised;

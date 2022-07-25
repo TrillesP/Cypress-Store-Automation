@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const FormContainer = styled.div`
-  /* border-style: solid; */
   border-radius: 6px;
   padding: 20px 40px 40px 40px;
   gap: 32px;

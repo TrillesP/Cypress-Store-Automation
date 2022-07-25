@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
-  max-width: 80%;
-  min-width: 1440px;
+  display: flex;
+  flex: wrap;
+  max-width: 100%;
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
+  min-height: 100%;
+  box-sizing: border-box;
   /* margin: 2rem auto; */
   /* padding: 2.5rem; */
   margin: 0 auto;
 
   background: ${(props) => props.theme.background};
-
-  display: flex;
   flex-direction: column;
   /* justify-content: flex-start; */
   /* align-items: center; */
-  flex: 1;
+  /* flex: 1; */
 `

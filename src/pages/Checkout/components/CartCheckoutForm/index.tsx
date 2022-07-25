@@ -42,19 +42,19 @@ export function CartCheckoutForm() {
           <PricingContainer>
             <BasePricingContainer>
               <label htmlFor="">Total de Items</label>
-              <span>{totalPrice.toFixed(2)}</span>
+              <span>R$ {totalPrice.toFixed(2)}</span>
             </BasePricingContainer>
             <BasePricingContainer>
               <label htmlFor="">Entrega</label>
-              <span> {deliveryFee.toFixed(2)}</span>
+              <span> R$ {deliveryFee.toFixed(2)}</span>
             </BasePricingContainer>
             <GrandTotalPriceContainer>
               <label htmlFor="">Total</label>
-              <span> {grandTotalPrice.toFixed(2)}</span>
+              <span> R$ {grandTotalPrice.toFixed(2)}</span>
             </GrandTotalPriceContainer>
           </PricingContainer>
-          <ConfirmOrderButton> Confirmar Pedido </ConfirmOrderButton>
         </OrderSummaryContainer>
+        <ConfirmOrderButton> Confirmar Pedido </ConfirmOrderButton>
       </SelectedCoffeesBigContainer>
     </CartCheckoutContainer>
   )
