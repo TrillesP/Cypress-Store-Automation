@@ -1,5 +1,5 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
-import { defaultTheme } from '../../../../../../styles/themes/default'
+import { defaultTheme } from '../../../../styles/themes/default'
 import {
   AddAndRemoveCounter,
   CartItemContainer,
@@ -10,7 +10,7 @@ import {
   RemoveFromCartButton,
   Separator,
 } from './styles'
-import { qtyDelta, CartContext } from '../../../../../../contexts/CartContext'
+import { qtyDelta, CartContext } from '../../../../contexts/CartContext'
 import { useContext } from 'react'
 
 interface CartItemProps {

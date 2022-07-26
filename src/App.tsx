@@ -5,6 +5,7 @@ import { defaultTheme } from './styles/themes/default'
 import { Router } from './Router'
 import { CartContextProvider } from './contexts/CartContext'
 import { ProductsContextProvider } from './contexts/ProductsContext'
+import { OrderContextProvider } from './contexts/OrderContext'
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <BrowserRouter>
         <ProductsContextProvider>
           <CartContextProvider>
-            <Router />
+            <OrderContextProvider>
+              <Router />
+            </OrderContextProvider>
           </CartContextProvider>
         </ProductsContextProvider>
       </BrowserRouter>

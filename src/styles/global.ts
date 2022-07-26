@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   max-width: 100%;
   background: ${(props) => props.theme.background};
