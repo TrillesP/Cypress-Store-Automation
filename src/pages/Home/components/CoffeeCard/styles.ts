@@ -107,7 +107,10 @@ export const AddAndRemoveCounter = styled.div`
   }
 `
 export const PlusAndMinusButton = styled.button`
-  color: ${(props) => props.theme['purple-light']};
+  color: ${(props) => props.theme['purple-dark']};
+  &:hover {
+    color: ${(props) => props.theme.purple};
+  }
 `
 
 export const AddToCartButton = styled.button`
@@ -126,5 +129,6 @@ export const AddToCartButton = styled.button`
 
   &:hover {
     cursor: pointer;
+    background: ${(props) => props.theme.purple};
   }
 `

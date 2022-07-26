@@ -80,13 +80,13 @@ export function CoffeeCard({
           <p> R$ </p>
           <Styles.CoffeePrice> {price.toFixed(2)} </Styles.CoffeePrice>
           <Styles.AddAndRemoveCounter>
-            <button onClick={handleClickDecrement}>
+            <Styles.PlusAndMinusButton onClick={handleClickDecrement}>
               <Minus color={defaultTheme['purple-dark']} weight="bold" />
-            </button>
+            </Styles.PlusAndMinusButton>
             <span> {currentQuantity} </span>
-            <button onClick={handleClickIncrement}>
+            <Styles.PlusAndMinusButton onClick={handleClickIncrement}>
               <Plus color={defaultTheme['purple-dark']} weight="bold" />
-            </button>
+            </Styles.PlusAndMinusButton>
           </Styles.AddAndRemoveCounter>
           <Styles.AddToCartButton onClick={handleClickAddToCart}>
             <ShoppingCart />

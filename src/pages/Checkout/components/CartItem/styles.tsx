@@ -97,6 +97,7 @@ export const RemoveFromCartButton = styled.div`
   height: 32px;
   &:hover {
     cursor: pointer;
+    ${(props) => props.theme['base-hover']};
   }
 `
 
