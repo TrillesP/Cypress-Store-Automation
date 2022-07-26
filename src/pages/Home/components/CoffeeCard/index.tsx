@@ -66,7 +66,6 @@ export function CoffeeCard({
   return (
     <>
       <Styles.CoffeeCardWrapper>
-        {/* <form onSubmit={handleCreateNewCartItem}> */}
         <img src={img} alt={`Xícara de ${name} vista de cima`} />
         <Styles.CoffeeFlavorPills>
           {tags.map((tag) => {
@@ -93,7 +92,6 @@ export function CoffeeCard({
             <ShoppingCart />
           </Styles.AddToCartButton>
         </Styles.CoffeeBuyDiv>
-        {/* </form> */}
       </Styles.CoffeeCardWrapper>
     </>
   )

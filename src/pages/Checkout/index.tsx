@@ -8,7 +8,6 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
-// import { defaultTheme } from '@styles/themes/default'
 import { defaultTheme } from '@/styles/themes/default'
 import { CartItem } from './components/CartItem'
 import { useContext } from 'react'
@@ -60,10 +59,24 @@ export function Checkout() {
     createNewOrder(data)
     navigate('/checkout-success')
   }
+
   const paymentMethod = watch('paymentMethod')
   const isSubmitDisabled = !paymentMethod
+
   console.log(formState.errors)
 
+  const selectedCoffeesInCart = cart.map((item) => {
+    return (
+      <CartItem
+        key={Math.random()}
+        cartItemId={item.cartItemId}
+        img={item.product.img}
+        price={item.product.price}
+        name={item.product.name}
+        quantity={item.quantity}
+      />
+    )
+  })
   return (
     <>
       <FormProvider {...newCheckoutForm}>
@@ -155,18 +168,7 @@ export function Checkout() {
             <Styled.CartCheckoutContainer>
               <h3>Cafés Selecionados</h3>
               <Styled.SelectedCoffeesBigContainer>
-                {cart.map((item) => {
-                  return (
-                    <CartItem
-                      key={Math.random()}
-                      cartItemId={item.cartItemId}
-                      img={item.product.img}
-                      price={item.product.price}
-                      name={item.product.name}
-                      quantity={item.quantity}
-                    />
-                  )
-                })}
+                {selectedCoffeesInCart}
                 <Styled.OrderSummaryContainer>
                   <Styled.PricingContainer>
                     <Styled.BasePricingContainer>
@@ -185,9 +187,6 @@ export function Checkout() {
                 </Styled.OrderSummaryContainer>
                 <Styled.ConfirmOrderButton
                   type="submit"
-                  // onClick={() => {
-                  //   navigate('/checkout-success')
-                  // }}
                   disabled={isSubmitDisabled}
                 >
                   Confirmar Pedido
