@@ -155,7 +155,6 @@ const initialAvailableProducts = [
     img: Mochaccino,
   },
 ]
-
 interface ProductsContextType {
   availableProducts: Product[]
   // getProductInfoById: (productId: string) => Product
