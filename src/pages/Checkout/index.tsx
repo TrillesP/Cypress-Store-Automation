@@ -42,7 +42,7 @@ import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { OrderContext } from '../../contexts/OrderContext'
 import * as zod from 'zod'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod.string().min(8, 'CEP deve ter 8 dígitos sem traço.'),
@@ -81,7 +81,7 @@ export function Checkout() {
     },
   })
 
-  const { register, handleSubmit, watch, reset, formState } = newCheckoutForm
+  const { register, handleSubmit, formState } = newCheckoutForm
 
   function handleCreateNewCheckoutOrder(data: NewCheckoutFormData) {
     createNewOrder(data)
@@ -222,7 +222,6 @@ export function Checkout() {
           </MainCheckoutContainer>
         </form>
       </FormProvider>
-      <span>{JSON.stringify(order)}</span>
     </>
   )
 }
