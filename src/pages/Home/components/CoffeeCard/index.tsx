@@ -1,19 +1,10 @@
-import {
-  AddAndRemoveCounter,
-  AddToCartButton,
-  CoffeeBuyDiv,
-  CoffeeCardWrapper,
-  CoffeeDescDiv,
-  CoffeeFlavorPills,
-  CoffeePrice,
-} from './styles'
+import * as Styles from './styles'
 
-import { Minus, Plus, ShoppingCart, Trash } from 'phosphor-react'
-import { defaultTheme } from '../../../../styles/themes/default'
-import { CartContext } from '../../../../contexts/CartContext'
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { defaultTheme } from '@/styles/themes/default'
+import { CartContext } from '@/contexts/CartContext'
 import { MouseEvent, useContext, useState } from 'react'
-import { Product } from '../..'
-import { ProductsContext } from '../../../../contexts/ProductsContext'
+import { Product } from '@/contexts/ProductsContext'
 
 interface CoffeeCardProps {
   id: string
@@ -45,7 +36,7 @@ export function CoffeeCard({
     img,
   }
   const { addProductToCart } = useContext(CartContext)
-  const { availableProducts } = useContext(ProductsContext)
+  // const { availableProducts } = useContext(ProductsContext)
 
   const [currentQuantity, setCurrentQuantity] = useState(1)
   const [product] = useState(currentProduct)
@@ -74,22 +65,22 @@ export function CoffeeCard({
 
   return (
     <>
-      <CoffeeCardWrapper>
+      <Styles.CoffeeCardWrapper>
         {/* <form onSubmit={handleCreateNewCartItem}> */}
         <img src={img} alt={`Xícara de ${name} vista de cima`} />
-        <CoffeeFlavorPills>
+        <Styles.CoffeeFlavorPills>
           {tags.map((tag) => {
             return <span key={tag}> {tag} </span>
           })}
-        </CoffeeFlavorPills>
-        <CoffeeDescDiv>
+        </Styles.CoffeeFlavorPills>
+        <Styles.CoffeeDescDiv>
           <h3> {name} </h3>
           <p> {description} </p>
-        </CoffeeDescDiv>
-        <CoffeeBuyDiv>
+        </Styles.CoffeeDescDiv>
+        <Styles.CoffeeBuyDiv>
           <p> R$ </p>
-          <CoffeePrice> {price.toFixed(2)} </CoffeePrice>
-          <AddAndRemoveCounter>
+          <Styles.CoffeePrice> {price.toFixed(2)} </Styles.CoffeePrice>
+          <Styles.AddAndRemoveCounter>
             <button onClick={handleClickDecrement}>
               <Minus color={defaultTheme['purple-dark']} weight="bold" />
             </button>
@@ -97,13 +88,13 @@ export function CoffeeCard({
             <button onClick={handleClickIncrement}>
               <Plus color={defaultTheme['purple-dark']} weight="bold" />
             </button>
-          </AddAndRemoveCounter>
-          <AddToCartButton onClick={handleClickAddToCart}>
+          </Styles.AddAndRemoveCounter>
+          <Styles.AddToCartButton onClick={handleClickAddToCart}>
             <ShoppingCart />
-          </AddToCartButton>
-        </CoffeeBuyDiv>
+          </Styles.AddToCartButton>
+        </Styles.CoffeeBuyDiv>
         {/* </form> */}
-      </CoffeeCardWrapper>
+      </Styles.CoffeeCardWrapper>
     </>
   )
 }

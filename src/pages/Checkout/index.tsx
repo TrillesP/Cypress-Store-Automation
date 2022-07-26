@@ -1,32 +1,4 @@
-import {
-  AddressFieldsContainer,
-  AddressInfoContainer,
-  AddressLabelContainer,
-  BasePricingContainer,
-  CartCheckoutContainer,
-  CEPInput,
-  CityInput,
-  ComplementInput,
-  ConfirmOrderButton,
-  FormContainer,
-  GrandTotalPriceContainer,
-  MainCheckoutContainer,
-  NeighborhoodCityUFContainer,
-  NeighborhoodInput,
-  NumberComplementContainer,
-  NumberInput,
-  OrderDetailContainer,
-  OrderSummaryContainer,
-  PaymentInfoHeaderContainer,
-  PaymentInfoTextContainer,
-  PaymentMethodContainer,
-  PaymentOptionsSelectContainer,
-  PricingContainer,
-  SelectedCoffeesBigContainer,
-  StreetInput,
-  UFInput,
-  PaymentOptionsSelector,
-} from './styles'
+import * as Styled from './styles'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
@@ -36,11 +8,12 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
-import { defaultTheme } from '../../styles/themes/default'
+// import { defaultTheme } from '@styles/themes/default'
+import { defaultTheme } from '@/styles/themes/default'
 import { CartItem } from './components/CartItem'
 import { useContext } from 'react'
-import { CartContext } from '../../contexts/CartContext'
-import { OrderContext } from '../../contexts/OrderContext'
+import { CartContext } from '@/contexts/CartContext'
+import { OrderContext } from '@/contexts/OrderContext'
 import * as zod from 'zod'
 import { useNavigate } from 'react-router-dom'
 
@@ -66,7 +39,7 @@ export function Checkout() {
     0,
   )
   const grandTotalPrice = deliveryFee + totalPrice
-  const { order, createNewOrder } = useContext(OrderContext)
+  const { createNewOrder } = useContext(OrderContext)
   const newCheckoutForm = useForm<NewCheckoutFormData>({
     resolver: zodResolver(newCheckoutFormValidationSchema),
     defaultValues: {
@@ -81,72 +54,75 @@ export function Checkout() {
     },
   })
 
-  const { register, handleSubmit, formState } = newCheckoutForm
+  const { register, handleSubmit, formState, watch } = newCheckoutForm
 
   function handleCreateNewCheckoutOrder(data: NewCheckoutFormData) {
     createNewOrder(data)
-    // reset()
+    navigate('/checkout-success')
   }
-
+  const paymentMethod = watch('paymentMethod')
+  const isSubmitDisabled = !paymentMethod
   console.log(formState.errors)
 
   return (
     <>
       <FormProvider {...newCheckoutForm}>
         <form action="" onSubmit={handleSubmit(handleCreateNewCheckoutOrder)}>
-          <MainCheckoutContainer>
-            <OrderDetailContainer>
-              <FormContainer>
+          <Styled.MainCheckoutContainer>
+            <Styled.OrderDetailContainer>
+              <Styled.FormContainer>
                 <h3>Complete seu pedido</h3>
-
-                <AddressInfoContainer>
+                <Styled.AddressInfoContainer>
                   <MapPinLine size={22} color={defaultTheme['yellow-dark']} />
-                  <AddressLabelContainer>
+                  <Styled.AddressLabelContainer>
                     <label htmlFor=""> Endereço de Entrega </label>
                     <span>
                       Informe o endereço de entrega para receber seu pedido
                     </span>
-                  </AddressLabelContainer>
-                </AddressInfoContainer>
-                <AddressFieldsContainer>
-                  <CEPInput placeholder="CEP" {...register('cep')} />
-                  <StreetInput
+                  </Styled.AddressLabelContainer>
+                </Styled.AddressInfoContainer>
+                <Styled.AddressFieldsContainer>
+                  <Styled.CEPInput placeholder="CEP" {...register('cep')} />
+                  <Styled.StreetInput
                     placeholder="Rua"
                     {...register('streetAddress')}
                   />
-                  <NumberComplementContainer>
-                    <NumberInput
+                  <Styled.NumberComplementContainer>
+                    <Styled.NumberInput
                       placeholder="Número"
                       {...register('streetNumber')}
                     />
-                    <ComplementInput
+                    <Styled.ComplementInput
                       placeholder="Complemento                                                 Opcional"
                       {...register('streetComplement')}
                     />
-                  </NumberComplementContainer>
-                  <NeighborhoodCityUFContainer>
-                    <NeighborhoodInput
+                  </Styled.NumberComplementContainer>
+                  <Styled.NeighborhoodCityUFContainer>
+                    <Styled.NeighborhoodInput
                       placeholder="Bairro"
                       {...register('neighborhood')}
                     />
-                    <CityInput placeholder="Cidade" {...register('city')} />
-                    <UFInput placeholder="UF" {...register('uf')} />
-                  </NeighborhoodCityUFContainer>
-                </AddressFieldsContainer>
-              </FormContainer>
-              <PaymentMethodContainer>
-                <PaymentInfoHeaderContainer>
+                    <Styled.CityInput
+                      placeholder="Cidade"
+                      {...register('city')}
+                    />
+                    <Styled.UFInput placeholder="UF" {...register('uf')} />
+                  </Styled.NeighborhoodCityUFContainer>
+                </Styled.AddressFieldsContainer>
+              </Styled.FormContainer>
+              <Styled.PaymentMethodContainer>
+                <Styled.PaymentInfoHeaderContainer>
                   <CurrencyDollar size={20} color={defaultTheme.purple} />
-                  <PaymentInfoTextContainer>
+                  <Styled.PaymentInfoTextContainer>
                     <span> Pagamento </span>
                     <span>
                       O pagamento é feito na entrega. Escolha a forma que deseja
                       pagar
                     </span>
-                  </PaymentInfoTextContainer>
-                </PaymentInfoHeaderContainer>
-                <PaymentOptionsSelectContainer>
-                  <PaymentOptionsSelector>
+                  </Styled.PaymentInfoTextContainer>
+                </Styled.PaymentInfoHeaderContainer>
+                <Styled.PaymentOptionsSelectContainer>
+                  <Styled.PaymentOptionsSelector>
                     <input
                       type="radio"
                       value="Cartão de débito"
@@ -154,8 +130,8 @@ export function Checkout() {
                     />
                     <CreditCard size={16} color={defaultTheme.purple} />
                     Cartão de Crédito
-                  </PaymentOptionsSelector>
-                  <PaymentOptionsSelector>
+                  </Styled.PaymentOptionsSelector>
+                  <Styled.PaymentOptionsSelector>
                     <input
                       type="radio"
                       value="Cartão de crédito"
@@ -163,8 +139,8 @@ export function Checkout() {
                     />
                     <Bank size={16} color={defaultTheme.purple} />
                     Cartão de Débito
-                  </PaymentOptionsSelector>
-                  <PaymentOptionsSelector>
+                  </Styled.PaymentOptionsSelector>
+                  <Styled.PaymentOptionsSelector>
                     <input
                       type="radio"
                       value="Dinheiro"
@@ -172,13 +148,13 @@ export function Checkout() {
                     />
                     <Money size={16} color={defaultTheme.purple} />
                     Dinheiro
-                  </PaymentOptionsSelector>
-                </PaymentOptionsSelectContainer>
-              </PaymentMethodContainer>
-            </OrderDetailContainer>
-            <CartCheckoutContainer>
+                  </Styled.PaymentOptionsSelector>
+                </Styled.PaymentOptionsSelectContainer>
+              </Styled.PaymentMethodContainer>
+            </Styled.OrderDetailContainer>
+            <Styled.CartCheckoutContainer>
               <h3>Cafés Selecionados</h3>
-              <SelectedCoffeesBigContainer>
+              <Styled.SelectedCoffeesBigContainer>
                 {cart.map((item) => {
                   return (
                     <CartItem
@@ -191,35 +167,34 @@ export function Checkout() {
                     />
                   )
                 })}
-                <OrderSummaryContainer>
-                  <PricingContainer>
-                    <BasePricingContainer>
+                <Styled.OrderSummaryContainer>
+                  <Styled.PricingContainer>
+                    <Styled.BasePricingContainer>
                       <label htmlFor="">Total de Items</label>
                       <span>R$ {totalPrice.toFixed(2)}</span>
-                    </BasePricingContainer>
-                    <BasePricingContainer>
+                    </Styled.BasePricingContainer>
+                    <Styled.BasePricingContainer>
                       <label htmlFor="">Entrega</label>
                       <span> R$ {deliveryFee.toFixed(2)}</span>
-                    </BasePricingContainer>
-                    <GrandTotalPriceContainer>
+                    </Styled.BasePricingContainer>
+                    <Styled.GrandTotalPriceContainer>
                       <label htmlFor="">Total</label>
                       <span> R$ {grandTotalPrice.toFixed(2)}</span>
-                    </GrandTotalPriceContainer>
-                  </PricingContainer>
-                </OrderSummaryContainer>
-                <ConfirmOrderButton
+                    </Styled.GrandTotalPriceContainer>
+                  </Styled.PricingContainer>
+                </Styled.OrderSummaryContainer>
+                <Styled.ConfirmOrderButton
                   type="submit"
-                  onClick={() => {
-                    if (order.paymentMethod) {
-                      navigate('/checkout-success')
-                    }
-                  }}
+                  // onClick={() => {
+                  //   navigate('/checkout-success')
+                  // }}
+                  disabled={isSubmitDisabled}
                 >
                   Confirmar Pedido
-                </ConfirmOrderButton>
-              </SelectedCoffeesBigContainer>
-            </CartCheckoutContainer>
-          </MainCheckoutContainer>
+                </Styled.ConfirmOrderButton>
+              </Styled.SelectedCoffeesBigContainer>
+            </Styled.CartCheckoutContainer>
+          </Styled.MainCheckoutContainer>
         </form>
       </FormProvider>
     </>

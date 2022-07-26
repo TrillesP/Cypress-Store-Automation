@@ -1,5 +1,5 @@
 import { produce } from 'immer'
-import { Product } from '../contexts/ProductsContext'
+import { Product } from '@/contexts/ProductsContext'
 /* eslint-disable no-unused-vars */
 export interface CartItem {
   cartItemId: string

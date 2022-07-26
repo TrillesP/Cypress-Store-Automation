@@ -1,82 +1,70 @@
 import { CurrencyDollar, MapPinLine, Timer } from 'phosphor-react'
 import { useContext } from 'react'
-import { OrderContext } from '../../contexts/OrderContext'
-import { defaultTheme } from '../../styles/themes/default'
-import {
-  CardAndImageContainer,
-  DeliveryCardWrapper,
-  DeliveryInfoCard,
-  IconContainer,
-  IllustrationContainer,
-  InfoSpan,
-  OrangeWrapper,
-  PurpleWrapper,
-  TextContainer,
-  TitleAndInfoContainer,
-  YellowWrapper,
-} from './styles'
-import ilustration from '../../assets/IllustrationCheckoutSuccess.svg'
+import { OrderContext } from '@/contexts/OrderContext'
+import { defaultTheme } from '@/styles/themes/default'
+import * as Styles from './styles'
+import ilustration from '@/assets/IllustrationCheckoutSuccess.svg'
 export function CheckoutSuccess() {
   const { order } = useContext(OrderContext)
   return (
     <>
-      <TitleAndInfoContainer>
+      <Styles.TitleAndInfoContainer>
         <h3> Uhu! Pedido confirmado </h3>
         <span> Agora é só aguardar que logo o café chegará até você </span>
-      </TitleAndInfoContainer>
-      <CardAndImageContainer>
-        <DeliveryCardWrapper>
-          <DeliveryInfoCard>
-            <InfoSpan>
-              <IconContainer>
-                <PurpleWrapper>
+      </Styles.TitleAndInfoContainer>
+      <Styles.CardAndImageContainer>
+        <Styles.DeliveryCardWrapper>
+          <Styles.DeliveryInfoCard>
+            <Styles.InfoSpan>
+              <Styles.IconContainer>
+                <Styles.PurpleWrapper>
                   <MapPinLine
                     size={28}
                     weight={'fill'}
                     color={defaultTheme.white}
                   />
-                </PurpleWrapper>
-              </IconContainer>
-              <TextContainer>
+                </Styles.PurpleWrapper>
+              </Styles.IconContainer>
+              <Styles.TextContainer>
                 <span>
                   {`Entrega em `}
                   <b>{`${order.streetAddress}, ${order.streetNumber}`}</b>
                 </span>
                 {`${order.neighborhood} - ${order.city}, ${order.uf}`}
-              </TextContainer>
-            </InfoSpan>
-            <InfoSpan>
-              <IconContainer>
-                <YellowWrapper>
+              </Styles.TextContainer>
+            </Styles.InfoSpan>
+            <Styles.InfoSpan>
+              <Styles.IconContainer>
+                <Styles.YellowWrapper>
                   <Timer size={28} weight={'fill'} color={defaultTheme.white} />
-                </YellowWrapper>
-              </IconContainer>
-              <TextContainer>
+                </Styles.YellowWrapper>
+              </Styles.IconContainer>
+              <Styles.TextContainer>
                 <span>Previsão de entrega:</span>
                 <strong> 20 - 30 minutos </strong>
-              </TextContainer>
-            </InfoSpan>
-            <InfoSpan>
-              <IconContainer>
-                <OrangeWrapper>
+              </Styles.TextContainer>
+            </Styles.InfoSpan>
+            <Styles.InfoSpan>
+              <Styles.IconContainer>
+                <Styles.OrangeWrapper>
                   <CurrencyDollar
                     size={28}
                     weight={'fill'}
                     color={defaultTheme.white}
                   />
-                </OrangeWrapper>
-              </IconContainer>
-              <TextContainer>
+                </Styles.OrangeWrapper>
+              </Styles.IconContainer>
+              <Styles.TextContainer>
                 <span>Pagamento na entrega</span>
                 <strong>{`${order.paymentMethod}`}</strong>
-              </TextContainer>
-            </InfoSpan>
-          </DeliveryInfoCard>
-        </DeliveryCardWrapper>
-        <IllustrationContainer>
+              </Styles.TextContainer>
+            </Styles.InfoSpan>
+          </Styles.DeliveryInfoCard>
+        </Styles.DeliveryCardWrapper>
+        <Styles.IllustrationContainer>
           <img src={ilustration} alt="" />
-        </IllustrationContainer>
-      </CardAndImageContainer>
+        </Styles.IllustrationContainer>
+      </Styles.CardAndImageContainer>
     </>
   )
 }

@@ -1,17 +1,4 @@
-import {
-  BlackWrapper,
-  HomeContainer,
-  InfoItems,
-  InfoItemsCol1,
-  InfoItemsCol2,
-  InfoSpan,
-  InfoWrapper,
-  IntroContainer,
-  MainTextInfo,
-  OrangeWrapper,
-  PurpleWrapper,
-  YellowWrapper,
-} from './styles'
+import * as Styles from './styles'
 
 import bigCoffeeCup from '../../assets/BigCoffeeCup.svg'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
@@ -24,63 +11,63 @@ export function Home() {
   const { availableProducts } = useContext(ProductsContext)
 
   return (
-    <HomeContainer>
-      <IntroContainer>
-        <InfoWrapper>
-          <MainTextInfo>
+    <Styles.HomeContainer>
+      <Styles.IntroContainer>
+        <Styles.InfoWrapper>
+          <Styles.MainTextInfo>
             <h1>Encontre o café perfeito</h1>
             <p>
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora
             </p>
-          </MainTextInfo>
-          <InfoItems>
-            <InfoItemsCol1>
-              <InfoSpan>
-                <OrangeWrapper>
+          </Styles.MainTextInfo>
+          <Styles.InfoItems>
+            <Styles.InfoItemsCol1>
+              <Styles.InfoSpan>
+                <Styles.OrangeWrapper>
                   <ShoppingCart
                     size={28}
                     weight={'fill'}
                     color={defaultTheme.white}
                   />
-                </OrangeWrapper>
+                </Styles.OrangeWrapper>
                 Compra simples e segura
-              </InfoSpan>
-              <InfoSpan>
-                <YellowWrapper>
+              </Styles.InfoSpan>
+              <Styles.InfoSpan>
+                <Styles.YellowWrapper>
                   <Timer size={28} weight={'fill'} color={defaultTheme.white} />
-                </YellowWrapper>
+                </Styles.YellowWrapper>
                 Entrega rápida e rastreada
-              </InfoSpan>
-            </InfoItemsCol1>
-            <InfoItemsCol2>
-              <InfoSpan>
-                <BlackWrapper>
+              </Styles.InfoSpan>
+            </Styles.InfoItemsCol1>
+            <Styles.InfoItemsCol2>
+              <Styles.InfoSpan>
+                <Styles.BlackWrapper>
                   <Package
                     size={28}
                     weight={'fill'}
                     color={defaultTheme.white}
                   />
-                </BlackWrapper>
+                </Styles.BlackWrapper>
                 Embalagem mantém café intacto
-              </InfoSpan>
-              <InfoSpan>
-                <PurpleWrapper>
+              </Styles.InfoSpan>
+              <Styles.InfoSpan>
+                <Styles.PurpleWrapper>
                   <Coffee
                     size={28}
                     weight={'fill'}
                     color={defaultTheme.white}
                   />
-                </PurpleWrapper>
+                </Styles.PurpleWrapper>
                 O café chega fresquinho até você
-              </InfoSpan>
-            </InfoItemsCol2>
-          </InfoItems>
-        </InfoWrapper>
+              </Styles.InfoSpan>
+            </Styles.InfoItemsCol2>
+          </Styles.InfoItems>
+        </Styles.InfoWrapper>
         <img src={bigCoffeeCup} alt="Carrinho de compras" />
-      </IntroContainer>
+      </Styles.IntroContainer>
       <h2> Nossos Cafés</h2>
       <CoffeeShop availableCoffeesList={availableProducts} />
-    </HomeContainer>
+    </Styles.HomeContainer>
   )
 }
