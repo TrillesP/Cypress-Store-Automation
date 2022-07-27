@@ -2,7 +2,7 @@
 A coffee delivery e-commerce front-end example done using React.
 
 ### Features
-Home:
+#### Home:
 - Render products for sale at home page
 - Change quantity of product and send to cart
 - Show cart item quantity number on header
