@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const MainCheckoutContainer = styled.div`
   display: flex;
@@ -166,12 +166,15 @@ export const PaymentOptionsSelectContainer = styled.div`
   align-items: center;
   padding: 0px;
   gap: 12px;
+
+  .selected {
+    background: ${(props) => props.theme['purple-light']};
+  }
 `
 
 export const PaymentOptionsSelector = styled.div`
   width: 180.67px;
   height: 51px;
-  background: ${(props) => props.theme['base-button']};
   border: none;
   display: flex;
   flex-direction: row;
@@ -189,8 +192,13 @@ export const PaymentOptionsSelector = styled.div`
   line-height: 160%;
   text-transform: uppercase;
 
+  .selected {
+    background: ${(props) => props.theme['purple-light']};
+  }
+
   &:hover {
-    /* cursor: pointer; */
+    cursor: pointer;
+    background: ${(props) => props.theme['base-hover']};
   }
 
   input {
@@ -258,6 +266,7 @@ export const ConfirmOrderButton = styled.button`
   text-transform: uppercase;
 
   &:hover {
+    background: ${(props) => props.theme['yellow-dark']};
     cursor: pointer;
   }
 `

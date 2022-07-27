@@ -68,6 +68,7 @@ export const AddAndRemoveCounter = styled.div`
     background: ${(props) => props.theme['base-button']};
     border-style: none;
     &:hover {
+      background: ${(props) => props.theme['base-hover']};
       cursor: pointer;
     }
   }
@@ -97,7 +98,7 @@ export const RemoveFromCartButton = styled.div`
   height: 32px;
   &:hover {
     cursor: pointer;
-    ${(props) => props.theme['base-hover']};
+    background: ${(props) => props.theme['base-hover']};
   }
 `
 

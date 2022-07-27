@@ -10,7 +10,7 @@ import {
 } from 'phosphor-react'
 import { defaultTheme } from '@/styles/themes/default'
 import { CartItem } from './components/CartItem'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '@/contexts/CartContext'
 import { OrderContext } from '@/contexts/OrderContext'
 import * as zod from 'zod'
@@ -77,6 +77,24 @@ export function Checkout() {
       />
     )
   })
+
+  const [paymentMethodState, setPaymentMethodState] = useState('')
+
+  function handleChangeOfToMoney() {
+    console.log('i have been called (money)')
+    setPaymentMethodState('money')
+  }
+
+  function handleChangeOfToCreditCard() {
+    console.log('i have been called (credit)')
+    setPaymentMethodState('credit')
+  }
+
+  function handleChangeOfToDebitCard() {
+    console.log('i have been called (debit)')
+    setPaymentMethodState('debit')
+  }
+
   return (
     <>
       <FormProvider {...newCheckoutForm}>
@@ -135,25 +153,36 @@ export function Checkout() {
                   </Styled.PaymentInfoTextContainer>
                 </Styled.PaymentInfoHeaderContainer>
                 <Styled.PaymentOptionsSelectContainer>
-                  <Styled.PaymentOptionsSelector>
-                    <input
-                      type="radio"
-                      value="Cartão de débito"
-                      {...register('paymentMethod')}
-                    />
-                    <CreditCard size={16} color={defaultTheme.purple} />
-                    Cartão de Crédito
-                  </Styled.PaymentOptionsSelector>
-                  <Styled.PaymentOptionsSelector>
+                  <Styled.PaymentOptionsSelector
+                    className={
+                      paymentMethodState === 'credit' ? 'selected' : ''
+                    }
+                    onClick={handleChangeOfToCreditCard}
+                  >
                     <input
                       type="radio"
                       value="Cartão de crédito"
                       {...register('paymentMethod')}
                     />
+                    <CreditCard size={16} color={defaultTheme.purple} />
+                    Cartão de Crédito
+                  </Styled.PaymentOptionsSelector>
+                  <Styled.PaymentOptionsSelector
+                    className={paymentMethodState === 'debit' ? 'selected' : ''}
+                    onClick={handleChangeOfToDebitCard}
+                  >
+                    <input
+                      type="radio"
+                      value="Cartão de débito"
+                      {...register('paymentMethod')}
+                    />
                     <Bank size={16} color={defaultTheme.purple} />
                     Cartão de Débito
                   </Styled.PaymentOptionsSelector>
-                  <Styled.PaymentOptionsSelector>
+                  <Styled.PaymentOptionsSelector
+                    className={paymentMethodState === 'money' ? 'selected' : ''}
+                    onClick={handleChangeOfToMoney}
+                  >
                     <input
                       type="radio"
                       value="Dinheiro"

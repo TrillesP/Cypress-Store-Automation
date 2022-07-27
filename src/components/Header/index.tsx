@@ -11,6 +11,7 @@ import locationIcon from '../../assets/LocationIcon.svg'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { NavLink } from 'react-router-dom'
+import { ShoppingCart } from 'phosphor-react'
 
 export function Header() {
   const { cart } = useContext(CartContext)
@@ -27,7 +28,7 @@ export function Header() {
         </LocationPill>
         <NavLink to="/checkout" title="checkout">
           <CartButton>
-            <img src={cartImg} alt="" />
+            <ShoppingCart size={28} />
           </CartButton>
         </NavLink>
         <CartQtyIndicator>{cart.length}</CartQtyIndicator>

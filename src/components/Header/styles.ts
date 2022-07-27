@@ -31,7 +31,20 @@ export const LocationPill = styled.div`
 
 export const CartButton = styled.button`
   border: none;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme.white};
+  padding: 8px;
+  gap: 8px;
+  border-radius: 6px;
   &:hover {
+    background: ${(props) => props.theme.yellow};
     cursor: pointer;
   }
 `
@@ -46,7 +59,7 @@ export const CartQtyIndicator = styled.span`
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: ${(props) => props.theme['yellow-dark']};
+  background: ${(props) => props.theme.yellow};
   color: white;
 
   font-family: 'Roboto';

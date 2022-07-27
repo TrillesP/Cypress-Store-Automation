@@ -109,7 +109,7 @@ export const AddAndRemoveCounter = styled.div`
 export const PlusAndMinusButton = styled.button`
   color: ${(props) => props.theme['purple-dark']};
   &:hover {
-    color: ${(props) => props.theme.purple};
+    background: ${(props) => props.theme['base-hover']};
   }
 `
 
