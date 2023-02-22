@@ -5,7 +5,7 @@ Projeto de loja de delivery ☕ em TypeScript com React forkeada do @gfatori [Li
 
 Automação feita para testar meu conhecimento de Cypress numa aplicação real como um desafio de mapeamento de elementos numa página.
 
-Visão inicial de testar ferramentas principais de uma página de compra, como:
+:fire: Visão inicial de testar ferramentas principais de uma página de compra, como:
 - Se todos os produtos e elementos importantes da página inicial renderizam corretamente.
 - Se a adição de produtos no carrinho funciona corretamente, com sua quantidade, valores e características adequadas.
 - Se a página do carrinho é renderizada corretamente e funciona, do seu formulário de compra até seu botão de finalizar compra.
