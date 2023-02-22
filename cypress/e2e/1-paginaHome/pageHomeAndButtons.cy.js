@@ -35,6 +35,8 @@ describe('testes de elementos e botões da página Home e Checkout', () => {
     cy.get(selectors.buttons.homeButton).should('exist')
     cy.get(selectors.values.productsInCart).should('have.text', '0')
 
+    // abaixo, adiciona item no carrinho
+
     cy.get(selectors.e.allProducts)
       .find(selectors.buttons.addToCartButton)
       .first()
