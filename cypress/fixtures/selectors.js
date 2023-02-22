@@ -5,6 +5,7 @@ export const selectors = {
     addToCartButton: '.sc-hlnMnd',
     removeItem: '.sc-cCsOjp',
     confirmCheckout: '.sc-cxabCf',
+    paymentOptions: '.sc-fLlhyt',
   },
   inputs: {
     inputSection: '.sc-kDDrLX',
@@ -26,5 +27,6 @@ export const selectors = {
     addOrRemove: '.sc-ZyCDH',
     addOrRemoveCheckout: '.sc-gXmSlM',
     infoCart: '.sc-iIPllB',
+    infoShip: '.sc-jOrMOR',
   },
 }
