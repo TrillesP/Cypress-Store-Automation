@@ -20,7 +20,7 @@ describe('testes de elementos e botões da página Home e Checkout', () => {
       .last()
       .should('contain', 'Mochaccino')
   })
-  
+
   it('verifica existência e funcionalidade dos botões de adicionar ao carrinho e botão Home', () => {
     cy.get(selectors.e.allProducts)
       .find(selectors.buttons.addToCartButton)
